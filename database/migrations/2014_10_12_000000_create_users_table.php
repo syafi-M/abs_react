@@ -13,10 +13,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Role::class, 'role_id')->default(1);
+            $table->foreignIdFor(Kerjasama::class);
+            $table->foreignIdFor(Divisi::class, 'devisi_id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('nama_lengkap');
+            $table->string('email')->unique('255');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('image');
+            $table->date('last_notification_date')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
