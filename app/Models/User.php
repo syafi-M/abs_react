@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -24,6 +25,7 @@ class User extends Authenticatable
         'name',
         'nama_lengkap',
         'kerjasama_id',
+        'devisi_id',
         'email',
         'password',
         'image',
@@ -69,7 +71,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Absensi::class);
     }
-    public function Divisi()
+    public function Divisi(): BelongsTo
     {
         return $this->belongsTo(Divisi::class, 'devisi_id', 'id');
     }

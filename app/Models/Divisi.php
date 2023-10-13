@@ -19,7 +19,7 @@ class Divisi extends Model
     }
     public function Jabatan()
     {
-        return $this->belongsTo(Jabatan::class);
+        return $this->belongsTo(Jabatan::class, 'jabatan_id', 'id');
     }
     
     public function User()

@@ -46,7 +46,7 @@ export default function Navbar({ auth }) {
                                     ))}
                             </div>
                             <div className="flex justify-between flex-col gap-1">
-                                <p className="font-semibold text-sm uppercase line-clamp-1 break-words">
+                                <p className="font-semibold text-sm capitalize line-clamp-1 break-words">
                                     {auth.nama_lengkap}
                                 </p>
                             </div>
@@ -55,8 +55,8 @@ export default function Navbar({ auth }) {
                     <div className="md:flex gap-3 mr-7 hidden overflow-hidden">
                         {!admin && (
                             <NavLink
-                                href={route("dashboard")}
-                                active={route().current("dashboard")}
+                                href={route("dashboard.index")}
+                                active={route().current("dashboard.index")}
                             >
                                 Dashboard
                             </NavLink>
@@ -64,8 +64,8 @@ export default function Navbar({ auth }) {
 
                         {!admin && (
                             <NavLink
-                                href={route("dashboard")}
-                                active={route().current("dashboard")}
+                                href={route("dashboard.index")}
+                                active={route().current("dashboard.index")}
                             >
                                 Admin Tool
                             </NavLink>
