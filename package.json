@@ -21,6 +21,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "luxon": "^3.4.3",
         "react-icons": "^4.11.0"
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AbsensiCollection;
 use App\Http\Resources\UserCollection;
 use App\Models\Absensi;
 use App\Models\Jabatan;
@@ -21,10 +22,10 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $abs = Absensi::all();
+        $abs = new AbsensiCollection(Absensi::with(['User', 'Kerjasama', 'Shift'])->get());
         $lembur = Lembur::latest('jam_selesai')->get();
         $kerjasama = Kerjasama::all();
-        $absen = Absensi::all();
+        $absen = new AbsensiCollection(Absensi::with(['User', 'Kerjasama', 'Shift'])->get());
         $rate = Rating::all();
         $user = Auth::user()->divisi->jabatan_id;
         $nguser = new UserCollection( User::with(['Divisi', 'Kerjasama', 'Role'])->where('id', Auth::user()->id)->get());

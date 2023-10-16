@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Divisi extends Model
 {
@@ -17,7 +18,7 @@ class Divisi extends Model
     {
         return $this->belongsToMany(Perlengkapan::class, 'divisi_perlengkapan');
     }
-    public function Jabatan()
+    public function Jabatan(): BelongsTo
     {
         return $this->belongsTo(Jabatan::class, 'jabatan_id', 'id');
     }

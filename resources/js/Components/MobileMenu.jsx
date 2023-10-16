@@ -1,4 +1,4 @@
-import { usePage } from "@inertiajs/react";
+import { useForm, usePage } from "@inertiajs/react";
 import {
     RiAccountCircleLine,
     RiEditFill,
@@ -7,6 +7,7 @@ import {
 } from "react-icons/ri";
 export default function MobileMenu() {
     const auth = usePage().props;
+    const { post } = useForm();
     // console.log(auth);
     const logout = (e) => {
         e.preventDefault();
